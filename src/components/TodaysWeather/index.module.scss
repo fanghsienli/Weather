@@ -1,0 +1,133 @@
+@import "../../mediaQuery.scss";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap");
+
+.container {
+  top: 17px;
+  position: absolute;
+  left: 70px;
+  height: 314px;
+  max-width: 610px;
+  box-sizing: border-box;
+  width: calc(100% - 140px);
+  display: flex;
+  flex-direction: column;
+
+  @include respond(small) {
+    top: 20px;
+    left: 44px;
+    height: 250px;
+    width: calc(100% - 84px);
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+
+  img {
+    width: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include respond(small) {
+      width: 157px;
+      top: 44px;
+    }
+  }
+}
+
+.context {
+  display: flex;
+  flex: 1;
+}
+
+.todaysWeather {
+  line-height: 18px;
+  color: var(--color);
+  @include respond(small) {
+    font-size: 14px;
+  }
+}
+
+.leftContext {
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    &:first-child {
+      flex: 1;
+    }
+  }
+}
+
+.degreeNumber {
+  position: absolute;
+  bottom: 60px;
+  font-size: 108px;
+  line-height: 84px;
+  color: var(--degree-color);
+  font-weight: 700;
+
+  @include respond(small) {
+    font-size: 80px;
+    line-height: 70px;
+    bottom: 30px;
+  }
+}
+
+.tempRange {
+  font-size: 16px;
+  color: var(--color);
+  @include respond(small) {
+    font-size: 12px;
+  }
+}
+
+.location {
+  font-size: 16px;
+  color: var(--location-color);
+  font-weight: 800;
+  @include respond(small) {
+    font-size: 12px;
+  }
+}
+
+.containerWeatherDetail {
+  margin-top: 141px;
+  padding: auto;
+  bottom: 0;
+
+  @include respond(small) {
+    margin-top: 130px;
+  }
+}
+
+.cityAndCountry {
+  flex: 1;
+}
+
+.rightContext {
+  padding-top: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 16px;
+  line-height: 21.79px;
+  color: var(--location-color);
+  text-align: right;
+  div {
+    flex: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  @include respond(small) {
+    flex-direction: column;
+    font-size: 12px;
+  }
+}

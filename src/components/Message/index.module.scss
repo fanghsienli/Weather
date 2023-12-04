@@ -1,0 +1,18 @@
+@import "../../mediaQuery.scss";
+
+.container {
+  border-radius: 20px;
+  border: 1px;
+  color: var(--color);
+  background: var(--background-card-color);
+  padding: 10px 20px;
+  top: 18px;
+  position: absolute;
+
+  @include respond(small) {
+    border-radius: 8px;
+    top: 18px;
+    left: 18px;
+    padding: 8px 12px;
+  }
+}

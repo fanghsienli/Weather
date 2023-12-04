@@ -1,0 +1,76 @@
+@import "../../../mediaQuery.scss";
+
+.searchHistory {
+  border-radius: 16px;
+  background: var(--search-history-list);
+  display: flex;
+  padding: 13px;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 10px;
+  div {
+    line-height: 34px;
+    @include respond(small) {
+      line-height: 17px;
+    }
+  }
+
+  @include respond(small) {
+    font-size: 14px;
+  }
+}
+
+.context {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  @include respond(small) {
+    flex-direction: column;
+    line-height: 17px;
+  }
+}
+
+.cityAndCountry {
+  flex: 1;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+.historyDate {
+  width: 135px;
+  font-size: 14px;
+  color: var(--history-date-color);
+
+  @include respond(small) {
+    font-size: 10px;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  @include respond(small) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+.buttonLight {
+  cursor: pointer;
+  border-radius: 17px;
+  background: var(--btn-background);
+  border: var(--btn-border);
+  box-shadow: var(--btn-box-shadow);
+  box-sizing: border-box;
+  height: 34px;
+  width: 34px;
+}
+
+.svgIcon {
+  color: var(--svg-color);
+  transform: scale(0.3333);
+  margin: var(--btn-img-margin);
+}
