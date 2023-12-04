@@ -5,21 +5,21 @@
   --title-color: rgba(0, 0, 0, 0.4);
   --location-color: rgba(102, 102, 102, 1);
   --degree-color: rgb(108, 64, 181);
-  --background-card-color: linear-gradient(
+  --search-history-list-container-background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.5),
     rgba(255, 255, 255, 0.2)
   );
-  --background-image: url("../../assets/bg-light.png");
-  --search-history-card: rgba(255, 255, 255, 0.2);
-  --search-history-list: rgba(255, 255, 255, 0.4);
-  --history-date-color: rgba(0, 0, 0, 1);
-  --btn-background: rgb(255, 255, 255);
-  --btn-border: 0;
-  --btn-img-margin: -7px;
-  --btn-box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
-  --svg-color: rgb(128, 128, 128);
-  --search-btn-color: rgba(108, 64, 181, 1);
+  --root-background: url("../../assets/bg-light.png");
+  --search-history-list-background: rgba(255, 255, 255, 0.2);
+  --search-history-background: rgba(255, 255, 255, 0.4);
+  --search-datetime-color: rgba(0, 0, 0, 1);
+  --button-background: rgb(255, 255, 255);
+  --button-border: 0;
+  --button-img-margin: -7px;
+  --button-box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+  --button-svg-color: rgb(128, 128, 128);
+  --search-button-color: rgba(108, 64, 181, 1);
 }
 
 .themeDark {
@@ -27,21 +27,21 @@
   --title-color: rgba(255, 255, 255, 0.4);
   --location-color: rgba(255, 255, 255, 1);
   --degree-color: rgba(255, 255, 255, 1);
-  --background-card-color: rgba(26, 26, 26, 0.3);
-  --background-image: url("../../assets/bg-dark.png");
-  --search-history-card: rgba(26, 26, 26, 0.3);
-  --search-history-list: rgba(26, 26, 26, 0.5);
-  --history-date-color: rgba(255, 255, 255, 0.5);
-  --btn-background: none;
-  --btn-border: 2px solid rgba(255, 255, 255, 0.4);
-  --btn-img-margin: -9px;
-  --btn-box-shadow: none;
-  --svg-color: rgb(147, 145, 160);
-  --search-btn-color: rgba(40, 18, 77, 1);
+  --search-history-list-container-background: rgba(26, 26, 26, 0.3);
+  --root-background: url("../../assets/bg-dark.png");
+  --search-history-list-background: rgba(26, 26, 26, 0.3);
+  --search-history-background: rgba(26, 26, 26, 0.5);
+  --search-datetime-color: rgba(255, 255, 255, 0.5);
+  --button-background: none;
+  --button-border: 2px solid rgba(255, 255, 255, 0.4);
+  --button-img-margin: -9px;
+  --button-box-shadow: none;
+  --button-svg-color: rgb(147, 145, 160);
+  --search-button-color: rgba(40, 18, 77, 1);
 }
 
 .app {
-  background-image: var(--background-image);
+  background-image: var(--root-background);
   background-size: cover;
   transition: background-image 0.5s ease;
   display: flex;
@@ -49,7 +49,7 @@
   height: 100vh;
 }
 
-.toggleSwitch {
+.themeToggle {
   position: absolute;
   top: 34px;
   right: 41px;
@@ -95,7 +95,7 @@
   }
 }
 
-.container {
+.searchResult {
   position: relative;
   padding: 0 26px 26px 26px;
   max-width: 752px;
@@ -107,6 +107,22 @@
   flex: 1;
   @include respond(small) {
     padding: 0 18px 18px 18px;
+  }
+}
+
+.searchHistoryListContainer {
+  border-radius: 20px;
+  border: 1px;
+  background: var(--search-history-list-container-background);
+  margin-top: 112px;
+  padding: 245px 40px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  @include respond(small) {
+    margin-top: 132px;
+    padding: 163px 20px 20px;
   }
 }
 

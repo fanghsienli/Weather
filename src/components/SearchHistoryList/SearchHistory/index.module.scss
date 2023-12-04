@@ -2,7 +2,7 @@
 
 .searchHistory {
   border-radius: 16px;
-  background: var(--search-history-list);
+  background: var(--search-history-background);
   display: flex;
   padding: 13px;
   width: 100%;
@@ -36,10 +36,10 @@
   padding-right: 8px;
 }
 
-.historyDate {
+.searchDateTime {
   width: 135px;
   font-size: 14px;
-  color: var(--history-date-color);
+  color: var(--search-datetime-color);
 
   @include respond(small) {
     font-size: 10px;
@@ -60,9 +60,9 @@
   div {
     cursor: pointer;
     border-radius: 17px;
-    background: var(--btn-background);
-    border: var(--btn-border);
-    box-shadow: var(--btn-box-shadow);
+    background: var(--button-background);
+    border: var(--button-border);
+    box-shadow: var(--button-box-shadow);
     box-sizing: border-box;
     height: 34px;
     width: 34px;
@@ -70,7 +70,7 @@
 }
 
 .svgIcon {
-  color: var(--svg-color);
+  color: var(--button-svg-color);
   transform: scale(0.3333);
-  margin: var(--btn-img-margin);
+  margin: var(--button-img-margin);
 }

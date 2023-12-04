@@ -2,9 +2,9 @@
 import { useState } from "react";
 
 // Components
-import SearchHistoryListContainer from "../SearchHistoryListContainer";
+import SearchHistoryList from "../SearchHistoryList";
 import TodaysWeather from "../TodaysWeather";
-import ToggleSwitch from "../ThemeToggle";
+import ThemeToggle from "../ThemeToggle";
 import SearchBar from "../SearchBar";
 import Message from "../Message";
 import { Loading } from "../../icons";
@@ -98,17 +98,20 @@ function App() {
           <Message message={message}></Message>
         </div>
       ) : null}
-      <div className={styles.toggleSwitch}>
-        <ToggleSwitch onChange={handleThemeChange} defaultValue={true} />
+      <div className={styles.themeToggle}>
+        <ThemeToggle onChange={handleThemeChange} defaultValue={true} />
       </div>
-      <div className={styles.container}>
+      <div className={styles.searchResult}>
         <TodaysWeather weather={weather} />
+
         {searchHistories.length > 0 || weather ? (
-          <SearchHistoryListContainer
-            searchHistories={searchHistories}
-            searchHistory={handleSearch}
-            deleteHistory={handleDelete}
-          />
+          <div className={styles.searchHistoryListContainer}>
+            <SearchHistoryList
+              searchHistories={searchHistories}
+              searchHistory={handleSearch}
+              deleteHistory={handleDelete}
+            />
+          </div>
         ) : null}
       </div>
     </main>

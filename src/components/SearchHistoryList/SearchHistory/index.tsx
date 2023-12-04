@@ -28,7 +28,7 @@ function SearchHistory({
         <div className={styles.cityAndCountry}>
           {city}, {country}
         </div>
-        <div className={styles.historyDate}>
+        <div className={styles.searchDateTime}>
           {formatTimestampToDateString(Math.floor(timestamp / 1000))}
         </div>
       </div>
