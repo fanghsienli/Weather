@@ -14,7 +14,7 @@ export function formatTimestampToDateString(timestamp: number) {
   const minutes = dateObject.getMinutes().toString().padStart(2, "0");
   const ampm = dateObject.getHours() >= 12 ? "pm" : "am";
 
-  const formattedDate = `${month}-${day}-${year} ${hours}:${minutes}${ampm}`;
+  const formattedDate = `${day}-${month}-${year} ${hours}:${minutes}${ampm}`;
   return formattedDate;
 }
 
