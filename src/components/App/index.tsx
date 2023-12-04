@@ -14,7 +14,7 @@ import type { Weather } from "../../types";
 
 // Utils
 import cx from "classnames";
-import { fetchWeatherRecord } from "../../utils";
+import { fetchWeatherRecord, getTodaysWeather } from "../../utils";
 
 // Styles
 import styles from "./index.module.scss";
@@ -102,15 +102,17 @@ function App() {
         <ThemeToggle onChange={handleThemeChange} defaultValue={true} />
       </div>
       <div className={styles.searchResult}>
-        <TodaysWeather weather={weather} />
+        {weather ? <TodaysWeather {...getTodaysWeather(weather)} /> : null}
 
         {searchHistories.length > 0 || weather ? (
-          <div className={styles.searchHistoryListContainer}>
-            <SearchHistoryList
-              searchHistories={searchHistories}
-              searchHistory={handleSearch}
-              deleteHistory={handleDelete}
-            />
+          <div className={styles.searchHistoryListAndTodaysWeatherBackground}>
+            {searchHistories.length > 0 ? (
+              <SearchHistoryList
+                searchHistories={searchHistories}
+                onSearch={handleSearch}
+                onDelete={handleDelete}
+              />
+            ) : null}
           </div>
         ) : null}
       </div>

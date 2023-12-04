@@ -9,8 +9,8 @@ import styles from "./index.module.scss";
 
 type Props = {
   searchHistories: Weather[];
-  searchHistory: ({ city, country }: { city: string; country: string }) => {};
-  deleteHistory: ({
+  onSearch: ({ city, country }: { city: string; country: string }) => {};
+  onDelete: ({
     id,
     fetchDateTime,
   }: {
@@ -19,11 +19,7 @@ type Props = {
   }) => {};
 };
 
-function SearchHistoryList({
-  searchHistories,
-  deleteHistory,
-  searchHistory,
-}: Props) {
+function SearchHistoryList({ searchHistories, onDelete, onSearch }: Props) {
   return (
     <div className={styles.searchHistoryListContainer}>
       <div className={styles.searchHistoryTitle}>Search History</div>
@@ -35,10 +31,8 @@ function SearchHistoryList({
               city={city}
               country={country}
               timestamp={fetchDateTime!}
-              onSearch={() => searchHistory({ city, country })}
-              onDelete={() =>
-                deleteHistory({ id, fetchDateTime: fetchDateTime! })
-              }
+              onSearch={() => onSearch({ city, country })}
+              onDelete={() => onDelete({ id, fetchDateTime: fetchDateTime! })}
             />
           )
         )}

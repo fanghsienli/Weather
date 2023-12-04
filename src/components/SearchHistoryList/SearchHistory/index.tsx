@@ -22,15 +22,16 @@ function SearchHistory({
   onSearch,
   onDelete,
 }: Props) {
+  const loaction = `${city}, ${country}`;
+  const searchDateTime = formatTimestampToDateString(
+    Math.floor(timestamp / 1000)
+  );
+
   return (
-    <div className={styles.searchHistory}>
+    <div className={styles.searchHistoryContainer}>
       <div className={styles.context}>
-        <div className={styles.cityAndCountry}>
-          {city}, {country}
-        </div>
-        <div className={styles.searchDateTime}>
-          {formatTimestampToDateString(Math.floor(timestamp / 1000))}
-        </div>
+        <div className={styles.cityAndCountry}>{loaction}</div>
+        <div className={styles.searchDateTime}>{searchDateTime}</div>
       </div>
       <div className={styles.buttons}>
         <div onClick={onSearch}>

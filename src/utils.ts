@@ -1,5 +1,5 @@
 // Types
-import type { WeatherResponse } from "./types";
+import type { Weather, WeatherResponse } from "./types";
 
 export function kelvinToCelsius(kelvin: number) {
   return Math.round(kelvin - 273.15);
@@ -46,4 +46,26 @@ export async function fetchWeatherRecord({
       errorMessage: error as string,
     };
   }
+}
+
+export function getTodaysWeather(weather: Weather) {
+  const {
+    main: { temp, temp_min, temp_max, humidity },
+    name,
+    sys: { country },
+    dt,
+    clouds: { all },
+    weather: mains,
+  } = weather;
+
+  return {
+    temperature: kelvinToCelsius(temp),
+    highTemperature: kelvinToCelsius(temp_max),
+    lowTemperature: kelvinToCelsius(temp_min),
+    humidity,
+    location: `${name}, ${country}`,
+    isCloud: all > 50,
+    status: mains[0].main,
+    recordDateTime: formatTimestampToDateString(dt),
+  };
 }
