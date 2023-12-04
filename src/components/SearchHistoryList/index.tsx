@@ -25,7 +25,7 @@ function SearchHistoryList({
   searchHistory,
 }: Props) {
   return (
-    <div className={styles.container}>
+    <div className={styles.searchHistoryListContainer}>
       <div className={styles.searchHistoryTitle}>Search History</div>
       <div className={styles.searchHistoryList}>
         {searchHistories.map(

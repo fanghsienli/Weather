@@ -56,17 +56,17 @@
     flex-wrap: wrap;
     gap: 10px;
   }
-}
 
-.buttonLight {
-  cursor: pointer;
-  border-radius: 17px;
-  background: var(--btn-background);
-  border: var(--btn-border);
-  box-shadow: var(--btn-box-shadow);
-  box-sizing: border-box;
-  height: 34px;
-  width: 34px;
+  div {
+    cursor: pointer;
+    border-radius: 17px;
+    background: var(--btn-background);
+    border: var(--btn-border);
+    box-shadow: var(--btn-box-shadow);
+    box-sizing: border-box;
+    height: 34px;
+    width: 34px;
+  }
 }
 
 .svgIcon {

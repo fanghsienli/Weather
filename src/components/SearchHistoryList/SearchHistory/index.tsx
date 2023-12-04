@@ -33,10 +33,10 @@ function SearchHistory({
         </div>
       </div>
       <div className={styles.buttons}>
-        <div className={styles.buttonLight} onClick={onSearch}>
+        <div onClick={onSearch}>
           <SearchIcon className={styles.svgIcon} />
         </div>
-        <div className={styles.buttonLight} onClick={onDelete}>
+        <div onClick={onDelete}>
           <DeleteIcon className={styles.svgIcon} />
         </div>
       </div>

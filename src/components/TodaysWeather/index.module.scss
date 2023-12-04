@@ -1,7 +1,7 @@
 @import "../../mediaQuery.scss";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap");
 
-.container {
+.todaysWeatherContainer {
   top: 17px;
   position: absolute;
   left: 70px;
@@ -104,10 +104,6 @@
   @include respond(small) {
     margin-top: 130px;
   }
-}
-
-.cityAndCountry {
-  flex: 1;
 }
 
 .rightContext {

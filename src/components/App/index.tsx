@@ -7,16 +7,17 @@ import TodaysWeather from "../TodaysWeather";
 import ToggleSwitch from "../ThemeToggle";
 import SearchBar from "../SearchBar";
 import Message from "../Message";
+import { Loading } from "../../icons";
 
 // Types
-import type { Weather, WeatherResponse } from "../../types";
+import type { Weather } from "../../types";
 
 // Utils
 import cx from "classnames";
+import { fetchWeatherRecord } from "../../utils";
 
 // Styles
 import styles from "./index.module.scss";
-import { Loading } from "../../icons";
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -53,26 +54,19 @@ function App() {
     }
     setLoading(true);
 
-    try {
-      const response = await fetch(
-        `https://openweathermap.org/data/2.5/find?q=${city},${country}&appid=439d4b804bc8187953eb36d2a8c26a02`
-      );
-      const data = (await response.json()) as WeatherResponse;
-      if (data?.list && data?.list.length > 0) {
-        const newWeatherRecord = {
-          ...data.list[0],
-          fetchDateTime: Date.now(),
-        };
-        setWeather(newWeatherRecord);
-        setSearchHistories([newWeatherRecord, ...searchHistories]);
-      } else {
-        setMessage("Not Found");
-      }
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-    } finally {
-      setLoading(false);
+    const { data: newWeatherRecord, errorMessage } = await fetchWeatherRecord({
+      city,
+      country,
+    });
+
+    if (newWeatherRecord) {
+      setWeather(newWeatherRecord);
+      setSearchHistories([newWeatherRecord, ...searchHistories]);
+    } else {
+      setMessage(errorMessage);
     }
+
+    setLoading(false);
   };
 
   const handleDelete = async ({

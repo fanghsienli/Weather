@@ -26,7 +26,7 @@ function TodaysWeather({ weather }: { weather?: Weather }) {
   } = weather;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.todaysWeatherContainer}>
       <div className={styles.title}>
         <div className={styles.containerWeatherDetail}>
           <div className={styles.todaysWeather}>Today's Weather</div>
