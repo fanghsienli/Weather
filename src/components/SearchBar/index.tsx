@@ -32,7 +32,7 @@ function SearchBar({ onSearch }: Props) {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.inputContainer}>
         <label className={styles.title}>City</label>
         <input
           type="text"
@@ -41,7 +41,7 @@ function SearchBar({ onSearch }: Props) {
           onKeyDown={handleKeyPress}
         />
       </div>
-      <div className={styles.container}>
+      <div className={styles.inputContainer}>
         <label className={styles.title}>Country</label>
         <input
           type="text"
